@@ -20,16 +20,15 @@ This repository is used for the build automation and static analysis assignment.
 
 The project needs the Temurin JDK 25 and Gradle 9.8. Gradle downloads the Kotlin compiler during the build, so you do not need to install Kotlin. Because the repository has no Gradle wrapper (`gradlew`), Gradle has to be installed on your machine. The easiest way to get both tools in the right versions is [mise](https://mise.jdx.dev), which reads them from [`mise.toml`](mise.toml):
 
-1. Install [Git](https://git-scm.com/install/) version 2.23 or later and check it with `git --version`. On macOS, use `brew install git` if you already have [Homebrew](https://brew.sh/), or install the Xcode Command Line Tools with `xcode-select --install`. On Linux, install your distribution's Git package. On Windows, use WSL: run all commands below in its Linux shell and keep the clone in its Linux home directory, for example `~/ise26-27_assignment02`.
-2. Install mise as described in its [getting started guide](https://mise.jdx.dev/getting-started.html) and activate it in your shell.
-3. Clone the repository and change into its directory:
+1. Check that Git is version 2.23 or later:
 
    ```shell
-   git clone https://github.com/se-uhd/ise26-27_assignment02.git
-   cd ise26-27_assignment02
+   git --version
    ```
 
-   Forking is optional. To use a GitHub fork, clone your fork's URL instead. If you cloned the starter, set `origin` to your own repository before pushing:
+   To update Git on macOS, use `brew install git` if you already have [Homebrew](https://brew.sh/), or install the Xcode Command Line Tools with `xcode-select --install`. On Linux, install your distribution's Git package. On Windows, use WSL: run all commands below in its Linux shell, with the repository in its Linux home directory, for example `~/ise26-27_assignment02`.
+2. Install mise as described in its [getting started guide](https://mise.jdx.dev/getting-started.html) and activate it in your shell.
+3. Forking is optional. If you cloned the starter repository rather than your own fork, set `origin` to your own repository before pushing:
 
    ```shell
    git remote set-url origin <your-repository-url>
@@ -37,19 +36,37 @@ The project needs the Temurin JDK 25 and Gradle 9.8. Gradle downloads the Kotlin
 
    To push over HTTPS, you need a personal access token or a credential manager. For GitHub, you can install the [GitHub CLI](https://cli.github.com/) separately and run `gh auth login`. Alternatively, use your repository's SSH URL.
 
-4. Before your first commit, configure Git's author identity. If you have already configured it, check it with `git config user.name` and `git config user.email`. Otherwise, run the following commands with your own name and email address:
+4. Before your first commit, configure Git's author identity. If you have already configured it, check the name and the email address:
+
+   ```shell
+   git config user.name
+   ```
+
+   ```shell
+   git config user.email
+   ```
+
+   Otherwise, set your own name and email address:
 
    ```shell
    git config --global user.name "Firstname Lastname"
+   ```
+
+   ```shell
    git config --global user.email "your-email@example.com"
    ```
 
    These settings apply to all your repositories on this system. To set them only for this clone and its worktrees, omit `--global` and run the commands in `ise26-27_assignment02`. Commit identities become visible when you push to a public repository. You may use your GitHub-provided `noreply` address from your account's email settings. Configuring an author identity does not authenticate you for pushing. See Git's [first-time setup guide](https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup).
 
-5. Trust the configuration file and install the tools:
+5. Trust the configuration file:
 
    ```shell
    mise trust
+   ```
+
+   Then install the tools:
+
+   ```shell
    mise install
    ```
 
@@ -57,6 +74,9 @@ The project needs the Temurin JDK 25 and Gradle 9.8. Gradle downloads the Kotlin
 
    ```shell
    java -version
+   ```
+
+   ```shell
    gradle --version
    ```
 
